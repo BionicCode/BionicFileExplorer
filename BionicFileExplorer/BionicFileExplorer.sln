@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bionic.FileExplorer", "BionicFileExplorer\Bionic.FileExplorer.csproj", "{7709C516-B22E-449A-8624-73A15A51123A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{4C6B73CC-D962-41E6-A9E6-89451881DFB3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7709C516-B22E-449A-8624-73A15A51123A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7709C516-B22E-449A-8624-73A15A51123A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7709C516-B22E-449A-8624-73A15A51123A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7709C516-B22E-449A-8624-73A15A51123A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C6B73CC-D962-41E6-A9E6-89451881DFB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C6B73CC-D962-41E6-A9E6-89451881DFB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C6B73CC-D962-41E6-A9E6-89451881DFB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C6B73CC-D962-41E6-A9E6-89451881DFB3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BC8D76A4-3BC0-4123-88D4-58910B9BFDD0}
+	EndGlobalSection
+EndGlobal

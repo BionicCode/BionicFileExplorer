@@ -1,0 +1,38 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:BionicFileExplorer.Net.Wpf">
+
+  <ResourceDictionary.MergedDictionaries>
+    <ResourceDictionary Source="/BionicFileExplorer.Net.Wpf;component/UIResources/Colors.xaml" />
+  </ResourceDictionary.MergedDictionaries>
+  
+  <Style x:Key="ToolBarRadioButtonStyle" TargetType="RadioButton">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource {x:Static local:BionicFileExplorer.ForegroundBrushKey}}" />
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="RadioButton">
+          <Border Background="{TemplateBinding Background}"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}"
+                  Padding="{TemplateBinding Padding}">
+            <ContentPresenter />
+          </Border>
+
+          <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+              <Setter Property="Background" Value="{DynamicResource MouseOverBackgroundBrush}" />
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+              <Setter Property="Background" Value="{DynamicResource SelectedBackgroundBrush}" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+              <Setter Property="Background" Value="Transparent" />
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+    
+</ResourceDictionary>

@@ -96,7 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BionicFileExplorer\Bionic.FileExplorer.csproj">
-      <Project>{7709C516-B22E-449A-8624-73A15A51123A}</Project>
+      <Project>{7709c516-b22e-449a-8624-73a15a51123a}</Project>
       <Name>Bionic.FileExplorer</Name>
     </ProjectReference>
   </ItemGroup>

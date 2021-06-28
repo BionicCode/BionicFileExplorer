@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+  <Color x:Key="SelectedBackgroundColor">#6b6868</Color>
+  <Color x:Key="SelectedForegroundColor">#e5e5e5</Color>
+  <Color x:Key="BackgroundColor">#74777a</Color>
+  <Color x:Key="MouseOverBackgroundColor">#919191</Color>
+  <Color x:Key="ControlBackgroundColor">#212020</Color>
+  <Color x:Key="ForegroundColor">#e5e5e5</Color>
+  <Color x:Key="SelectedUnfocusedColor">#FFDDDDDD</Color>
+  <Color x:Key="GlyphColor">#FF444444</Color>
+
+  <SolidColorBrush x:Key="SelectedBackgroundBrush" Color="{StaticResource SelectedBackgroundColor}" />
+  <SolidColorBrush x:Key="SelectedForegroundBrush" Color="{StaticResource SelectedForegroundColor}" />
+  <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource BackgroundColor}" />
+  <SolidColorBrush x:Key="MouseOverBackgroundBrush" Color="{StaticResource MouseOverBackgroundColor}" />
+  <SolidColorBrush x:Key="ControlBackgroundBrush" Color="{StaticResource ControlBackgroundColor}" />
+  <SolidColorBrush x:Key="ForegroundBrush" Color="{StaticResource ForegroundColor}" />
+</ResourceDictionary>

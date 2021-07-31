@@ -1,4 +1,5 @@
-﻿using BionicCode.Utilities.Net.Core.Wpf;
+﻿using BionicCode.Utilities.Net.Wpf;
+using BionicFileExplorer.Net.Wpf.FileSystemModel;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -18,12 +19,24 @@ using System.Windows.Shapes;
 
 namespace BionicFileExplorer.Net.Wpf
 {
+
+  [TemplatePart(Name = BionicFileExplorer.PartToolBarName, Type = typeof(Control))]
+  [TemplatePart(Name = BionicFileExplorer.PartListViewName, Type = typeof(ItemsControl))]
+  [TemplatePart(Name = BionicFileExplorer.PartTreeViewName, Type = typeof(ItemsControl))]
   public class BionicFileExplorer : Control
   {
+    public const string PartToolBarName = "PART_ToolBar";
+    public const string PartListViewName = "PART_ListView";
+    public const string PartTreeViewName = "PART_TreeView";
+
     public static ResourceKey ControlBackgroundColorKey = new ComponentResourceKey(typeof(BionicFileExplorer), "ControlBackgroundColor");
     public static ResourceKey ControlBackgroundBrushKey = new ComponentResourceKey(typeof(BionicFileExplorer), "ControlBackgroundBrush");
     public static ResourceKey ForegroundColorKey = new ComponentResourceKey(typeof(BionicFileExplorer), "ForegroundColor");
     public static ResourceKey ForegroundBrushKey = new ComponentResourceKey(typeof(BionicFileExplorer), "ForegroundBrush");
+
+    public static RoutedUICommand ShowListViewRoutedCommand => new RoutedUICommand("Show file system as list", nameof(BionicFileExplorer.ShowListViewRoutedCommand), typeof(BionicFileExplorer));
+
+    public static RoutedUICommand ShowTilesViewRoutedCommand => new RoutedUICommand("Show file system as tiles", nameof(BionicFileExplorer.ShowTilesViewRoutedCommand), typeof(BionicFileExplorer));
 
     public static readonly RoutedEvent SelectedFileSystemItemChangedEvent = EventManager.RegisterRoutedEvent(
     "SelectedFileSystemItemChanged", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(BionicFileExplorer));
@@ -136,8 +149,6 @@ namespace BionicFileExplorer.Net.Wpf
 
     #endregion IsShowingFileExtensions dependency property
 
-
-
     #region IsShowingSystemFiles dependency property
     public bool IsShowingSystemFiles
     {
@@ -164,8 +175,29 @@ namespace BionicFileExplorer.Net.Wpf
     private static void OnIsShowingHiddenFilesChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
       (d as BionicFileExplorer).OnIsShowingHiddenFilesChanged((bool)e.OldValue, (bool)e.NewValue);
-    } 
+    }
     #endregion
+
+    #region ToolBarTemplate dependency property
+
+
+    public ControlTemplate ToolBarTemplate
+    {
+      get { return (ControlTemplate)GetValue(ToolBarTemplateProperty); }
+      set { SetValue(ToolBarTemplateProperty, value); }
+    }
+
+    // Using a DependencyProperty as the backing store for ToolBarTemplate.  This enables animation, styling, binding, etc...
+    public static readonly DependencyProperty ToolBarTemplateProperty =
+        DependencyProperty.Register("ToolBarTemplate", typeof(ControlTemplate), typeof(BionicFileExplorer), new PropertyMetadata(default, OnToolBarTemplateChanged));
+
+    private static void OnToolBarTemplateChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+      (d as BionicFileExplorer).OnToolBarTemplateChanged(e.OldValue as ControlTemplate, e.NewValue as ControlTemplate);
+    }
+
+
+    #endregion ToolBarTemplate dependency property
 
     static BionicFileExplorer()
     {
@@ -182,7 +214,42 @@ namespace BionicFileExplorer.Net.Wpf
       AddHandler(TreeViewItem.SelectedEvent, new RoutedEventHandler(OnFileSystemNodeSelected));
       AddHandler(FileSystemListView.DirectoryExpandedEvent, new RoutedEventHandler(OnListViewDirectoryExpanded));
 
+      this.CommandBindings.Add(new CommandBinding(BionicFileExplorer.ShowListViewRoutedCommand, ExecuteShowListViewRoutedCommand));
+      this.CommandBindings.Add(new CommandBinding(BionicFileExplorer.ShowTilesViewRoutedCommand, ExecuteShowTilesViewRoutedCommand));
+
       this.Loaded += OnLoaded;
+    }
+
+    private void ExecuteShowListViewRoutedCommand(object sender, ExecutedRoutedEventArgs e)
+    {
+      if (this.ListView == null)
+      {
+        throw new TemplatePartNotFoundException($"Missing template part '{BionicFileExplorer.PartListViewName}'. To show a file system list view using the {nameof(BionicFileExplorer.ShowListViewRoutedCommand)}, there must be an element named '{BionicFileExplorer.PartListViewName}' defined in the ControlTemplate of {nameof(BionicFileExplorer)}.");
+      }
+
+      switch (this.ListView)
+      {
+        case FileSystemListView fileSystemListView: fileSystemListView.ShowListViewCommand.Execute(e.Parameter); break;
+        case UIElement uIElement: uIElement.Visibility = Visibility.Visible; break;
+        default:
+          break;
+      }
+    }
+
+    private void ExecuteShowTilesViewRoutedCommand(object sender, ExecutedRoutedEventArgs e)
+    {
+      if (this.ListView == null)
+      {
+        throw new TemplatePartNotFoundException($"Missing template part '{BionicFileExplorer.PartListViewName}'. To show a file system list view using the {nameof(BionicFileExplorer.ShowListViewRoutedCommand)}, there must be an element named '{BionicFileExplorer.PartListViewName}' defined in the ControlTemplate of {nameof(BionicFileExplorer)}.");
+      }
+
+      switch (this.ListView)
+      {
+        case FileSystemListView fileSystemListView: fileSystemListView.ShowTilesViewCommand.Execute(e.Parameter); break;
+        case UIElement uIElement: uIElement.Visibility = Visibility.Visible; break;
+        default:
+          break;
+      }
     }
 
     private static void OnSelectedItemChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -209,6 +276,16 @@ namespace BionicFileExplorer.Net.Wpf
 
     private  void OnLoaded(object sender, RoutedEventArgs e)
     {
+    }
+
+    public override void OnApplyTemplate()
+    {
+      base.OnApplyTemplate();
+      this.ToolBar = GetTemplateChild("PART_ToolBar") as Control;
+      this.ListView = GetTemplateChild("PART_ListView") as ItemsControl;
+      this.TreeView = GetTemplateChild("PART_TreeView") as ItemsControl;
+
+      ;
     }
 
     private void OnFileSystemNodeSelected(object sender, RoutedEventArgs e)
@@ -248,6 +325,14 @@ namespace BionicFileExplorer.Net.Wpf
       this.SelectedItem = selectedFileSystemItem;
     }
 
+    protected virtual void OnToolBarTemplateChanged(ControlTemplate oldValue, ControlTemplate newValue)
+    {
+      if (newValue != null && this.ToolBar != null)
+      {
+        this.ToolBar.Template = newValue;
+      }
+    }
+
     protected virtual async Task OnIsShowingFileExtensionsChangedAsync(bool oldValue, bool newValue)
     {
       switch (newValue)
@@ -280,5 +365,8 @@ namespace BionicFileExplorer.Net.Wpf
     }
 
     public FileSystem FileSystem { get; }
+    protected Control ToolBar { get; private set; }
+    protected ItemsControl ListView { get; private set; }
+    protected ItemsControl TreeView { get; private set; }
   }
 }

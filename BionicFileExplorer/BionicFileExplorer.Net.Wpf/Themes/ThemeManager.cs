@@ -1,4 +1,4 @@
-﻿using BionicCode.Utilities.Net.Core.Wpf;
+﻿using BionicCode.Utilities.Net.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Linq;

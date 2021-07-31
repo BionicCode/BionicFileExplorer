@@ -1,5 +1,6 @@
-﻿using BionicCode.Utilities.Net.Core.Wpf;
-using BionicCode.Utilities.Net.Core.Wpf.Extensions;
+﻿using BionicCode.Utilities.Net.Wpf;
+using BionicCode.Utilities.Net.Wpf.Extensions;
+using BionicFileExplorer.Net.Wpf.FileSystemModel;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -25,6 +26,7 @@ namespace BionicFileExplorer.Net.Wpf
 
   public class FileSystemListView : ListView
   {
+
     public ICommand ShowTilesViewCommand => new AsyncRelayCommand(ExecuteShowTilesViewCommand);
     public ICommand ShowListViewCommand => new AsyncRelayCommand(ExecuteShowListViewCommand);
 

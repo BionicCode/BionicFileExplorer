@@ -5,17 +5,25 @@
     <UseWPF>true</UseWPF>
     <Authors>Brian Sampoh</Authors>
     <Company>BionicCode</Company>
-    <Description>File explorer with different view for .NET 5</Description>
-    <Copyright>MIT</Copyright>
+    <Description>File explorer with different views for .NET 5</Description>
+    <Copyright>2021</Copyright>
+    <PackageProjectUrl>https://github.com/BionicCode/BionicFileExplorer</PackageProjectUrl>
+    <PackageIcon>BionicCode_Logo.png</PackageIcon>
+    <PackageIconUrl />
+    <PackageTags>file explorer fileexplorer bionicFileExplorer bionic BionicCode</PackageTags>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Version>1.0.2</Version>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>E:\-Programming-\C#\GitOpenSourceRepository\BionicFileExplorer\BionicFileExplorer\BionicFileExplorer.Net.Wpf\BionicFileExplorer.Net.Wpf.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BionicCode.Utilities.Net.Core.Wpf" Version="1.0.5" />
+    <PackageReference Include="BionicCode.Utilities.Net.Wpf" Version="1.0.0" />
+    <PackageReference Include="SharpCompress" Version="0.28.3" />
     <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\BionicFileExplorer.Net\BionicFileExplorer.Net.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +31,13 @@
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\BionicCode_Logo.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

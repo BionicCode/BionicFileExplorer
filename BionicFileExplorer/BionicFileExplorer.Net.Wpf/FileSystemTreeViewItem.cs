@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BionicFileExplorer.Net.Wpf.FileSystemModel;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;

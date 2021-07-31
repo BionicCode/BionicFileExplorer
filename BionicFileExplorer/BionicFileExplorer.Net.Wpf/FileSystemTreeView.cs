@@ -1,4 +1,5 @@
-﻿using BionicCode.Utilities.Net.Core.Wpf.Extensions;
+﻿using BionicCode.Utilities.Net.Wpf.Extensions;
+using BionicFileExplorer.Net.Wpf.FileSystemModel;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;

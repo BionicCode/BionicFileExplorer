@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BionicFileExplorer.Net.Wpf</name>
+    </assembly>
+    <members>
+        <member name="F:BionicFileExplorer.Net.Wpf.FileSystemIconSelector.MAX_PATH">
+            <summary>Maximal Length of unmanaged Windows-Path-strings</summary>
+        </member>
+        <member name="F:BionicFileExplorer.Net.Wpf.FileSystemIconSelector.MAX_TYPE">
+            <summary>Maximal Length of unmanaged Typename</summary>
+        </member>
+        <member name="F:BionicFileExplorer.Net.Wpf.FileSystemIconSelector.SHGFI.Icon">
+            <summary>get icon</summary>
+        </member>
+        <member name="F:BionicFileExplorer.Net.Wpf.FileSystemIconSelector.SHGFI.DisplayName">
+            <summary>get display name</summary>
+        </member>
+        <member name="F:BionicFileExplorer.Net.Wpf.FileSystemIconSelector.SHGFI.TypeName">
+            <summary>get type name</summary>
+        </member>
+        <member name="F:BionicFileExplorer.Net.Wpf.FileSystemIconSelector.SHGFI.Attributes">
+            <summary>get attributes</summary>
+        </member>
+        <member name="F:BionicFileExplorer.Net.Wpf.FileSystemIconSelector.SHGFI.IconLocation">
+            <summary>get icon location</summary>
+        </member>
+        <member name="F:BionicFileExplorer.Net.Wpf.FileSystemIconSelector.SHGFI.ExeType">
+            <summary>return exe type</summary>
+        </member>
+        <member name="F:BionicFileExplorer.Net.Wpf.FileSystemIconSelector.SHGFI.SysIconIndex">
+            <summary>get system icon index</summary>
+        </member>
+        <member name="F:BionicFileExplorer.Net.Wpf.FileSystemIconSelector.SHGFI.LinkOverlay">
+            <summary>put a link overlay on icon</summary>
+        </member>
+        <member name="F:BionicFileExplorer.Net.Wpf.FileSystemIconSelector.SHGFI.Selected">
+            <summary>show icon in selected state</summary>
+        </member>
+        <member name="F:BionicFileExplorer.Net.Wpf.FileSystemIconSelector.SHGFI.Attr_Specified">
+            <summary>get only specified attributes</summary>
+        </member>
+        <member name="F:BionicFileExplorer.Net.Wpf.FileSystemIconSelector.SHGFI.LargeIcon">
+            <summary>get large icon</summary>
+        </member>
+        <member name="F:BionicFileExplorer.Net.Wpf.FileSystemIconSelector.SHGFI.SmallIcon">
+            <summary>get small icon</summary>
+        </member>
+        <member name="F:BionicFileExplorer.Net.Wpf.FileSystemIconSelector.SHGFI.OpenIcon">
+            <summary>get open icon</summary>
+        </member>
+        <member name="F:BionicFileExplorer.Net.Wpf.FileSystemIconSelector.SHGFI.ShellIconSize">
+            <summary>get shell size icon</summary>
+        </member>
+        <member name="F:BionicFileExplorer.Net.Wpf.FileSystemIconSelector.SHGFI.PIDL">
+            <summary>pszPath is a pidl</summary>
+        </member>
+        <member name="F:BionicFileExplorer.Net.Wpf.FileSystemIconSelector.SHGFI.UseFileAttributes">
+            <summary>use passed dwFileAttribute</summary>
+        </member>
+        <member name="F:BionicFileExplorer.Net.Wpf.FileSystemIconSelector.SHGFI.AddOverlays">
+            <summary>apply the appropriate overlays</summary>
+        </member>
+        <member name="F:BionicFileExplorer.Net.Wpf.FileSystemIconSelector.SHGFI.OverlayIndex">
+            <summary>Get the index of the overlay in the upper 8 bits of the iIcon</summary>
+        </member>
+        <member name="T:BionicFileExplorer.Net.Zip.FileExtractor">
+            <summary>
+            Opens and extract archives using SharpCompress library [https://github.com/adamhathcock/sharpcompress].<para/>
+            Supported archive types: Zip, GZip, 7Zip, Rar, Tar.
+            </summary>
+        </member>
+        <member name="M:BionicFileExplorer.Net.Zip.FileExtractor.ExtractZipArchiveAsync(System.IO.FileInfo,System.IProgress{BionicFileExplorer.Net.Zip.ExtractionProgressEventArgs})">
+            <summary>
+            Extract ZIP file to temp folder and open the destination folder
+            </summary>
+            <param name="compressedFileInfo"><see cref="T:System.IO.FileInfo"/> of the .zip source</param>
+            <param name="progressReporter"></param>
+            <returns><code>True</code> on success.</returns>
+        </member>
+    </members>
+</doc>

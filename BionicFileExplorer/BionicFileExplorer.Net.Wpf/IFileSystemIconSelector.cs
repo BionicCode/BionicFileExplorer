@@ -1,4 +1,5 @@
-﻿using System.Windows.Media;
+﻿using BionicFileExplorer.Net.Wpf.FileSystemModel;
+using System.Windows.Media;
 
 namespace BionicFileExplorer.Net.Wpf
 {

@@ -1,4 +1,4 @@
-﻿using BionicCode.Utilities.Net.Core.Wpf.Converter;
+﻿using BionicCode.Utilities.Net.Wpf.Converter;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
